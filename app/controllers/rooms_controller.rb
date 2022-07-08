@@ -8,7 +8,8 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1
   def show
-    @room = Room.find(params[:id])
+    @items = @room.items
+    @item = Item.new
   end
 
   # GET /rooms/new
