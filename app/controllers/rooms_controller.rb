@@ -6,13 +6,26 @@ class RoomsController < ApplicationController
     @rooms = Room.all
   end
 
-  # GET /gardens/1
+  # GET /rooms/1
   def show
     @room = Room.find(params[:id])
   end
 
-  def edit
+  # GET /rooms/new
+  def new
+    @room = Room.new
+  end
 
+
+  # POST /rooms
+  def create
+    @room = Room.new(room_params)
+
+    if @room.save
+      redirect_to @room, notice: 'Room was successfully created.'
+    else
+      render :new
+    end
   end
 
   private
